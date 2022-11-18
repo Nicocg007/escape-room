@@ -1,0 +1,288 @@
+var s1, r1,temp1, s2, r2, temp2, s3, r3, temp3, p, intento, dificultad, limite, reinicio, maximo, minimo
+
+console.log("hola, en este juego tendras que decifrar una combinacion de tres digitos para abrir una puerta y escapar de un asesino, tendras una cantidad limitada de intentos y a medida que cambies las combinaciones se te daran pistas para llegar a la victoria, suerte")
+
+reinicio="si"
+console.log(" ")
+while (reinicio == "si") {
+  dificultad= "temporal"
+  p="cerrada"
+  intento = 1
+  console.log(" ")
+  console.log("dificultades:")
+  console.log(" ")
+  console.log("facil: 3 digitos, 2 variaciones (0-1), 4 intentos, valores iniciales a 0.")
+  console.log("media: 3 digitos, 3 variaciones (0-2), 5 intentos, valores iniciales aleatorios.")
+  console.log("dificil: 3 digitos, 4 variaciones (0-3), 5 intentos, valores iniciales aleatorios y desconocidos.")
+  console.log(" ")
+
+  while (dificultad != "facil" && dificultad != "prueba facil" && dificultad != "media" && dificultad != "prueba media" && dificultad != "dificil" && dificultad != "prueba dificil") {
+    dificultad=prompt("elije la dificultad del juego")
+    
+    if (dificultad == "dificil") {
+      r1=Math.floor(Math.random()*(3-0+1)+0)
+      r2=Math.floor(Math.random()*(3-0+1)+0)
+      r3=Math.floor(Math.random()*(3-0+1)+0)
+      s1=Math.floor(Math.random()*(3-0+1)+0)
+      s2=Math.floor(Math.random()*(3-0+1)+0)
+      s3=Math.floor(Math.random()*(3-0+1)+0)
+      while (r1 == s1 && r2 == s2 && r3 == s3){
+        r1=Math.floor(Math.random()*(3-0+1)+0)
+        r2=Math.floor(Math.random()*(3-0+1)+0)
+        r3=Math.floor(Math.random()*(3-0+1)+0)
+        s1=Math.floor(Math.random()*(3-0+1)+0)
+        s2=Math.floor(Math.random()*(3-0+1)+0)
+        s3=Math.floor(Math.random()*(3-0+1)+0)
+      }
+      limite = 6
+      maximo = 4
+      minimo = 0
+    }
+    else{
+      if (dificultad == "media"){
+        r1=Math.floor(Math.random()*(2-0+1)+0)
+        r2=Math.floor(Math.random()*(2-0+1)+0)
+        r3=Math.floor(Math.random()*(2-0+1)+0)
+        s1=Math.floor(Math.random()*(2-0+1)+0)
+        s2=Math.floor(Math.random()*(2-0+1)+0)
+        s3=Math.floor(Math.random()*(2-0+1)+0)
+        while (r1 == s1 && r2 == s2 && r3 == s3){
+          r1=Math.floor(Math.random()*(2-0+1)+0)
+          r2=Math.floor(Math.random()*(2-0+1)+0)
+          r3=Math.floor(Math.random()*(2-0+1)+0)
+          s1=Math.floor(Math.random()*(2-0+1)+0)
+          s2=Math.floor(Math.random()*(2-0+1)+0)
+          s3=Math.floor(Math.random()*(2-0+1)+0)
+        }
+        limite = 6
+        maximo = 3
+        minimo= 0
+        console.log(" ")
+        console.log("estados iniciales ", s1, s2, s3)
+      } 
+      else{
+        if (dificultad == "facil") {
+          s1=0
+          s2=0
+          s3=0
+          r1=Math.floor(Math.random()*(1-0+1)+0)
+          r2=Math.floor(Math.random()*(1-0+1)+0)
+          r3=Math.floor(Math.random()*(1-0+1)+0)
+          while (r1 == s1 && r2 == s2 && r3 == s3){
+            r1=Math.floor(Math.random()*(1-0+1)+0)
+            r2=Math.floor(Math.random()*(1-0+1)+0)
+            r3=Math.floor(Math.random()*(1-0+1)+0)
+          }
+          limite = 5
+          maximo=1
+          minimo=0
+          console.log(" ")
+          console.log("estados iniciales ", s1, s2, s3)
+        }
+        else{
+          if (dificultad == "prueba facil") {
+            s1=0
+            s2=0
+            s3=0
+            r1=Math.floor(Math.random()*(1-0+1)+0)
+            r2=Math.floor(Math.random()*(1-0+1)+0)
+            r3=Math.floor(Math.random()*(1-0+1)+0)
+            while (r1 == s1 && r2 == s2 && r3 == s3){
+              r1=Math.floor(Math.random()*(1-0+1)+0)
+              r2=Math.floor(Math.random()*(1-0+1)+0)
+              r3=Math.floor(Math.random()*(1-0+1)+0)
+            }
+            limite = 5
+            maximo=1
+            minimo=0
+            console.log(" ")
+            console.log("estados iniciales ", s1, s2, s3)
+            console.log(" ")
+            console.log("estados reales ", r1, r2, r3)
+          }
+          else{
+            if (dificultad == "prueba media") {
+              r1=Math.floor(Math.random()*(3-0+1)+0)
+              r2=Math.floor(Math.random()*(3-0+1)+0)
+              r3=Math.floor(Math.random()*(3-0+1)+0)
+              s1=Math.floor(Math.random()*(3-0+1)+0)
+              s2=Math.floor(Math.random()*(3-0+1)+0)
+              s3=Math.floor(Math.random()*(3-0+1)+0)
+              while (r1 == s1 && r2 == s2 && r3 == s3){
+                r1=Math.floor(Math.random()*(3-0+1)+0)
+                r2=Math.floor(Math.random()*(3-0+1)+0)
+                r3=Math.floor(Math.random()*(3-0+1)+0)
+                s1=Math.floor(Math.random()*(3-0+1)+0)
+                s2=Math.floor(Math.random()*(3-0+1)+0)
+                s3=Math.floor(Math.random()*(3-0+1)+0)
+              }
+              limite = 6
+              maximo = 3
+              minimo= 0
+              console.log(" ")
+              console.log("estados iniciales ", s1, s2, s3)
+              console.log(" ")
+              console.log("estados reales ", r1, r2, r3)
+            }
+            else{
+              if (dificultad == "prueba dificil"){
+                r1=Math.floor(Math.random()*(3-0+1)+0)
+                r2=Math.floor(Math.random()*(3-0+1)+0)
+                r3=Math.floor(Math.random()*(3-0+1)+0)
+                s1=Math.floor(Math.random()*(3-0+1)+0)
+                s2=Math.floor(Math.random()*(3-0+1)+0)
+                s3=Math.floor(Math.random()*(3-0+1)+0)
+                while (r1 == s1 && r2 == s2 && r3 == s3){
+                  r1=Math.floor(Math.random()*(3-0+1)+0)
+                  r2=Math.floor(Math.random()*(3-0+1)+0)
+                  r3=Math.floor(Math.random()*(3-0+1)+0)
+                  s1=Math.floor(Math.random()*(3-0+1)+0)
+                  s2=Math.floor(Math.random()*(3-0+1)+0)
+                  s3=Math.floor(Math.random()*(3-0+1)+0)
+                }
+                limite = 6
+                maximo = 4
+                minimo = 0
+                console.log(" ")
+                console.log("estados iniciales ", s1, s2, s3)
+                console.log(" ")
+                console.log("estados reales ", r1, r2, r3)
+              }
+              else{
+                console.log(" ")
+                console.log("no has escrito bien la dificultad, prfavor reintentalo")
+                console.log(" ")
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  console.log("---------------")
+
+  while (intento < limite && p == "cerrada") {
+
+    console.log("inicio de ciclo")
+    console.log(" ")
+
+    temp1=prompt("primer digito")
+    temp2=prompt("segundo digito")
+    temp3=prompt("tercer digito")
+
+    console.log(" ")
+    if (temp1 > maximo || temp1 < minimo || temp2 > maximo || temp2 < minimo || temp3 > maximo || temp3 < minimo){
+      console.log("valores ingresados incorrectos, vuelve a intentar")
+    }
+    else{
+      if (temp1 != r1 && temp2 != r2 && temp3 != r3) {
+        console.log("no hay coincidencias, intento fallido")
+        s1 = temp1
+        s2 = temp2
+        s3 = temp3
+        intento = intento + 1
+        x=limite-intento
+        console.log(" ")
+        console.log("te quedan ", x , " intentos")
+      }
+      else{
+        if (temp1 == r1 && temp2 == r2 && temp3 == r3){
+          p="abierta"
+          console.log("hay tres coincidencias, intento acertado")
+          s1 = temp1
+          s2 = temp2
+          s3 = temp3
+          console.log("terminaste en el intento ", intento)
+        }
+        else{
+          if (temp1 != r1 && temp2 == r2 && temp3 == r3) {
+            console.log("hay 2 coincidencias, intento fallido")
+            s1 = temp1
+            s2 = temp2
+            s3 = temp3
+            intento = intento + 1
+            x=limite-intento
+            console.log(" ")
+            console.log("te quedan ", x , " intentos")
+          }
+          else{
+            if (temp1 != r1 && temp2 != r2 && temp3 == r3) {
+              console.log("hay 1 coincidencia, intento fallido")
+              s1 = temp1
+              s2 = temp2
+              s3 = temp3
+              intento = intento + 1
+              x=limite-intento
+              console.log(" ")
+              console.log("te quedan ", x , " intentos")
+            }
+            else{
+              if (temp1 != r1 && temp2 == r2 && temp3 != r3) {
+                console.log("hay 1 coincidencia, intento fallido")
+                s1 = temp1
+                s2 = temp2
+                s3 = temp3
+                intento = intento + 1
+                x=limite-intento
+                console.log(" ")
+                console.log("te quedan ", x , " intentos")
+              }
+              else{
+                if (temp1 == r1 && temp2 != r2 && temp3 != r3) {
+                console.log("hay 1 coincidencia, intento fallido")
+                s1 = temp1
+                s2 = temp2
+                s3 = temp3
+                intento = intento + 1
+                x=limite-intento
+                console.log(" ")
+                console.log("te quedan ", x , " intentos")
+              }
+              else{
+                if (temp1 == r1 && temp2 != r2 && temp3 == r3) {
+                  console.log("hay 2 coincidencias, intento fallido")
+                  s1 = temp1
+                  s2 = temp2
+                  s3 = temp3
+                  intento = intento + 1
+                  x=limite-intento
+                  console.log(" ")
+                  console.log("te quedan ", x , " intentos")
+                }
+                else{
+                  if (temp1 == r1 && temp2 == r2 && temp3 != r3) {
+                    console.log("hay 2 coincidencia, intento fallido")
+                    s1 = temp1
+                    s2 = temp2
+                    s3 = temp3
+                    intento = intento + 1
+                    x=limite-intento
+                    console.log(" ")
+                    console.log("te quedan ", x , " intentos")
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    console.log(" ")
+    console.log("fin de ciclo")
+    console.log("---------------")
+  }
+
+  if (p == "abierta"){
+    console.log("felicidades, has decifrado el codigo, eres libre")
+  }
+  else{
+    if (p == "cerrada"){
+      console.log("no has decifrado el codigo, te han asesinado")
+      console.log("el codigo real era ", r1, r2, r3)
+    }
+  }
+  console.log(" ")
+  reinicio=prompt("quieres volver a jugar?")
+}
